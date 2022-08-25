@@ -140,6 +140,11 @@ resource confluence_content &quot;default&quot; {
   title = &quot;Example Page&quot;
   body  = &quot;&lt;p&gt;This page was built with Terraform&lt;/p&gt;&quot;
 }
+
+resource confluence_space &quot;default&quot; {
+  key  = &quot;MYSPACE&quot;
+  name   = &quot;My-Space&quot;
+}
 </code></pre>
 
 <h2 id="authentication">Authentication</h2>
@@ -232,5 +237,5 @@ resource confluence_content &quot;default&quot; {
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2022-08-25 14:04:26
+Build Date UTC : 2022-08-25 14:31:29
 -->
