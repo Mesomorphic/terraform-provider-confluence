@@ -16,8 +16,8 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://github.com/mesomorphic/terraform-provider-confluence/resources/confluence_space/</loc>
+     <lastmod>2022-08-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
