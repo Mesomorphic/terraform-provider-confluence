@@ -53,6 +53,13 @@ func resourceContent() *schema.Resource {
 				Default:          "",
 				DiffSuppressFunc: resourceContentDiffParent,
 			},
+			"labels": {
+				Type:     schema.TypeList,
+				Optional: true,
+				Elem: &schema.Schema{
+					Type: schema.TypeString,
+				},
+			},
 		},
 	}
 }
@@ -109,7 +116,7 @@ func contentFromResourceData(d *schema.ResourceData) *Content {
 		Body: &Body{
 			Storage: &Storage{
 				Value:          d.Get("body").(string),
-				Representation: "storage",
+				Representation: "editor2",
 			},
 		},
 		Title: d.Get("title").(string),
@@ -127,6 +134,21 @@ func contentFromResourceData(d *schema.ResourceData) *Content {
 			},
 		}
 	}
+
+	labelsRaw := d.Get("labels").([]interface{})
+	if len(labelsRaw) > 0 {
+		labels := make([]*Label, len(labelsRaw))
+		for i, raw := range labelsRaw {
+			labels[i] = &Label{
+				Prefix: "global",
+				Name:   raw.(string),
+			}
+		}
+		result.Metadata = &ContentMetadata{
+			Labels: labels,
+		}
+	}
+
 	return result
 }
 
@@ -142,6 +164,13 @@ func updateResourceDataFromContent(d *schema.ResourceData, content *Content, cli
 	}
 	if len(content.Ancestors) > 1 {
 		m["parent"] = content.Ancestors[len(content.Ancestors)-1].Id
+	}
+	if content.Metadata != nil && len(content.Metadata.Labels) > 1 {
+		labels := []string{}
+		for i, label := range content.Metadata.Labels {
+			labels[i] = label.Name
+		}
+		m["labels"] = labels
 	}
 	for k, v := range m {
 		err := d.Set(k, v)

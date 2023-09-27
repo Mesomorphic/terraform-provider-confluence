@@ -1,4 +1,4 @@
-![](https://github.com/mesomorphic/terraform-provider-confluence/workflows/Build%20and%20Test/badge.svg)
+![](https://img.shields.io/github/workflow/status/mirogta/terraform-provider-confluence/release)
 
 # Terraform Provider for Confluence
 
@@ -18,6 +18,13 @@ $ git clone https://github.com/mesomorphic/terraform-provider-confluence.git
 $ cd terraform-provider-confluence
 $ make install
 ```
+
+## Debugging
+
+See:
+
+- <https://developer.hashicorp.com/terraform/plugin/debugging>
+- <https://opencredo.com/blogs/running-a-terraform-provider-with-a-debugger/>
 
 ## Contributing
 

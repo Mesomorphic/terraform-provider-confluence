@@ -1,4 +1,4 @@
-module github.com/mesomorphic/terraform-provider-confluence
+module github.com/mirogta/terraform-provider-confluence
 
 go 1.16
 

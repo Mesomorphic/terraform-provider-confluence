@@ -11,14 +11,15 @@ type Body struct {
 
 // Content is a primary resource in Confluence
 type Content struct {
-	Id        string        `json:"id,omitempty"`
-	Type      string        `json:"type,omitempty"`
-	Title     string        `json:"title,omitempty"`
-	Space     *SpaceKey     `json:"space,omitempty"`
-	Version   *Version      `json:"version,omitempty"`
-	Body      *Body         `json:"body,omitempty"`
-	Links     *ContentLinks `json:"_links,omitempty"`
-	Ancestors []*Content    `json:"ancestors,omitempty"`
+	Id        string           `json:"id,omitempty"`
+	Type      string           `json:"type,omitempty"`
+	Title     string           `json:"title,omitempty"`
+	Space     *SpaceKey        `json:"space,omitempty"`
+	Version   *Version         `json:"version,omitempty"`
+	Body      *Body            `json:"body,omitempty"`
+	Links     *ContentLinks    `json:"_links,omitempty"`
+	Ancestors []*Content       `json:"ancestors,omitempty"`
+	Metadata  *ContentMetadata `json:"metadata,omitempty"`
 }
 
 // ContentLinks is part of Content
@@ -41,6 +42,17 @@ type Storage struct {
 // Version is part of Content
 type Version struct {
 	Number int `json:"number,omitempty"`
+}
+
+// ContentMetadata is part of Content
+type ContentMetadata struct {
+	Labels []*Label `json:"labels,omitempty"`
+}
+
+// Label is part of Metadata
+type Label struct {
+	Prefix string `json:"prefix,omitempty"`
+	Name   string `json:"name,omitempty"`
 }
 
 func (c *Client) CreateContent(content *Content) (*Content, error) {

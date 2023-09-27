@@ -12,3 +12,6 @@ secrets.*
 .terraform
 terraform.tfstate*
 vendor
+
+__debug_bin
+.vscode

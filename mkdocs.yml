@@ -1,6 +1,6 @@
 site_name: "Terraform Provider: Confluence"
-site_url: https://github.com/mesomorphic/terraform-provider-confluence
-repo_url: https://github.com/mesomorphic/terraform-provider-confluence
+site_url: https://github.com/mirogta/terraform-provider-confluence
+repo_url: https://github.com/mirogta/terraform-provider-confluence
 nav:
 - Getting Started: index.md
 - Resources:

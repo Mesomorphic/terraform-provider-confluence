@@ -18,6 +18,7 @@ resource confluence_content "example" {
   body = templatefile("${path.module}/example.tmpl", {
     pets = [for p in random_pet.pets : title(p.id)]
   })
+  labels = ["pets", "example"]
 }
 
 terraform {
