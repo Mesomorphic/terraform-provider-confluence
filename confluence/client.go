@@ -66,7 +66,7 @@ func NewClient(input *NewClientInput) *Client {
 	baseURL.User = url.UserPassword(input.user, input.token)
 	return &Client{
 		client: &http.Client{
-			Timeout: time.Second * 10,
+			Timeout: time.Second * 30,
 		},
 		baseURL:   &baseURL,
 		basePath:  basePath,
