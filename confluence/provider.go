@@ -52,6 +52,8 @@ func Provider() *schema.Provider {
 			},
 		},
 		DataSourcesMap: map[string]*schema.Resource{
+			"confluence_page":   dataSourcePage(),
+			"confluence_pages":  dataSourcePages(),
 			"confluence_space":  dataSourceSpace(),
 			"confluence_spaces": dataSourceSpaces(),
 		},
