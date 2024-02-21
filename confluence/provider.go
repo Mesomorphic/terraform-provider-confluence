@@ -51,7 +51,12 @@ func Provider() *schema.Provider {
 				DefaultFunc: schema.EnvDefaultFunc("CONFLUENCE_TOKEN", nil),
 			},
 		},
-		DataSourcesMap: map[string]*schema.Resource{},
+		DataSourcesMap: map[string]*schema.Resource{
+			"confluence_page":   dataSourcePage(),
+			"confluence_pages":  dataSourcePages(),
+			"confluence_space":  dataSourceSpace(),
+			"confluence_spaces": dataSourceSpaces(),
+		},
 		ResourcesMap: map[string]*schema.Resource{
 			"confluence_content":    resourceContent(),
 			"confluence_attachment": resourceAttachment(),
